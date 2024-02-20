@@ -1,10 +1,26 @@
+import Collection from "../../components/Collection/Collection";
+import Hero from "../../components/Hero/Hero";
+import Navbar from "../../components/Navbar/Navbar";
 
 
 const Home = () => {
   return (
-    <div>
-      <h2 className="text-5xl">Hello</h2>
+    <div >
+      <div className="hero min-h-screen" style={{backgroundImage: 'url(https://i.ibb.co/RTwKhfx/PW-banner-870x450.jpg)'}}>
+  <div className="hero-overlay bg-opacity-70">
+  <Navbar></Navbar>
+  <Hero></Hero>
+  </div>
+
+
+  
+</div>
+   <div>
+    <Collection></Collection>
+   </div>
+
     </div>
+
   );
 };
 
