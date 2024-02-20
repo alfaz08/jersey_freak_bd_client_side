@@ -1,6 +1,7 @@
 import Collection from "../../components/Collection/Collection";
 import Hero from "../../components/Hero/Hero";
 import Navbar from "../../components/Navbar/Navbar";
+import Policy from "../../components/Policy/Policy";
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
   
 </div>
    <div>
+    <Policy></Policy>
     <Collection></Collection>
    </div>
 
