@@ -10,7 +10,40 @@ import { FaArrowCircleLeft } from "react-icons/fa";
 
 const Slider = () => {
   
-  
+  const categories =[
+    {
+      id:1,
+      category:"addidas",
+      image:"https://i.ibb.co/cJzJzWp/adidas-logo-adidas-icon-free-free-vector.jpg"
+    },
+    {
+      id:2,
+      category:"nike",
+      image:"https://i.ibb.co/mSN6Yfg/free-nike-1-202653.jpg"
+    },
+    {
+      id:3,
+      category:"puma",
+      image:"https://i.ibb.co/ZxSB9nF/puma-logo-black-symbol-with-name-clothes-design-icon-abstract-football-illustration-with-white-backg.jpg"
+    },
+    {
+      id:4,
+      category:"kappa",
+      image:"https://i.ibb.co/KxRBYwv/kappa5224-logowik-com.webp"
+    },
+    {
+      id:5,
+      category:"reebok",
+      image:"https://i.ibb.co/vD09Nxz/images.png"
+    },
+    {
+      id:6,
+      category:"new balance",
+      image:"https://i.ibb.co/MhM9SMB/New-Balance-Emblem-700x394.png"
+    },
+  ]
+
+
   return (
     <>
      <div className="flex justify-between ">
@@ -57,105 +90,31 @@ const Slider = () => {
         className="mySwiper"
       >
 
+
         
-         <SwiperSlide id="image">
-          <Link to="/milkProducts">
+         {
+          categories?.map(category=>(
+            <SwiperSlide key={category.id} id="image">
+
+          <Link to={`/productDetails/${category.category}`}>
             <div className="card w-52 h-60 border  border-gray-300  shadow-xl hover:border hover:bg-amber-100  hover:border-amber-300 ">
               <figure className="px-10 pt-10">
                 <img
-                  src="https://i.ibb.co/cJzJzWp/adidas-logo-adidas-icon-free-free-vector.jpg"
+                  src={category.image}
                   alt="Shoes"
                   className="rounded-xl "
                 />
               </figure>
               <div className="card-body items-center text-center">
-                <h2 className="card-title">Addidas </h2>
+                <h2 className="card-title uppercase">{category.category}</h2>
               </div>
             </div>
           </Link>
         </SwiperSlide>
-         <SwiperSlide id="image">
-          <Link to="vegetableProducts">
-            <div className="card h-60 w-52 border  border-gray-300  shadow-xl hover:border hover:bg-amber-100  hover:border-amber-300">
-              <figure className="px-10 pt-10">
-                <img
-                  src="https://i.ibb.co/mSN6Yfg/free-nike-1-202653.jpg"
-                  alt="Shoes"
-                  className="rounded-xl"
-                />
-              </figure>
-              <div className="card-body items-center text-center">
-                <h2 className="card-title">Nike</h2>
-              </div>
-            </div>
-          </Link>
-        </SwiperSlide>
-         <SwiperSlide id="image">
-          <Link to="/beveragesProducts">
-            <div className="card w-52 h-60 border  border-gray-300  shadow-xl hover:bg-green-100 hover:border hover:bg-amber-100  hover:border-amber-300">
-              <figure className="px-10 pt-10">
-                <img
-                  src="https://i.ibb.co/ZxSB9nF/puma-logo-black-symbol-with-name-clothes-design-icon-abstract-football-illustration-with-white-backg.jpg"
-                  alt="Shoes"
-                  className="rounded-xl"
-                />
-              </figure>
-              <div className="card-body items-center text-center">
-                <h2 className="card-title">Puma</h2>
-              </div>
-            </div>
-          </Link>
-        </SwiperSlide>
-        <SwiperSlide id="image">
-          <Link to="/fruitProducts">
-            <div className="card h-60 w-52 border  border-gray-300  shadow-xl hover:bg-green-100 hover:border hover:bg-amber-100  hover:border-amber-300">
-              <figure className="px-10 pt-10">
-                <img
-                  src="https://i.ibb.co/MhM9SMB/New-Balance-Emblem-700x394.png"
-                  alt="Shoes"
-                  className="rounded-xl"
-                />
-              </figure>
-              <div className="card-body items-center text-center">
-                <h2 className="card-title">New Balance</h2>
-              </div>
-            </div>
-          </Link>
-        </SwiperSlide>
+          ))
+         }
 
-        <SwiperSlide id="image">
-          <Link to="/sweetProducts">
-            <div className="card w-52 h-60 border  border-gray-300  shadow-xl hover:bg-green-100 hover:border hover:bg-amber-100  hover:border-amber-300">
-              <figure className="px-10 pt-10">
-                <img
-                  src="https://i.ibb.co/KxRBYwv/kappa5224-logowik-com.webp"
-                  alt="Shoes"
-                  className="rounded-xl"
-                />
-              </figure>
-              <div className="card-body items-center text-center">
-                <h2 className="card-title ">Kappa</h2>
-              </div>
-            </div>
-          </Link>
-        </SwiperSlide>
-
-        <SwiperSlide id="image">
-          <Link to="/snackProducts">
-            <div className="card w-52 h-60 border  border-gray-300  shadow-xl hover:bg-green-100 hover:border hover:bg-amber-100  hover:border-amber-300">
-              <figure className="px-10 pt-10">
-                <img
-                  src="https://i.ibb.co/vD09Nxz/images.png"
-                  alt="Shoes"
-                  className="rounded-xl"
-                />
-              </figure>
-              <div className="card-body items-center text-center">
-                <h2 className="card-title">Reebok</h2>
-              </div>
-            </div>
-          </Link>
-        </SwiperSlide>
+         
         
       
         

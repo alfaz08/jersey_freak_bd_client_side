@@ -7,6 +7,9 @@ import SignUp from "../Pages/SignUp/SignUp";
 import About from "../Pages/About/About";
 import AddProduct from "../Pages/AddProduct/AddProduct";
 import PrivateRoute from "./PrivateRoute";
+import CategoryDetails from "../Pages/CategoryDetails/CategoryDetails";
+import ProductDetails from "../Pages/CategoryDetails/ProductDetails";
+import UpdateDetails from "../Pages/CategoryDetails/UpdateDetails";
 
 
 const router = createBrowserRouter([
@@ -38,6 +41,18 @@ const router = createBrowserRouter([
     {
       path:"/addProduct",
       element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
+    },
+    {
+      path:"/productDetails/:category",
+      element: <CategoryDetails></CategoryDetails>
+    },
+    {
+      path:"/singleProductDetails/:id",
+      element: <ProductDetails></ProductDetails>
+    },
+    {
+      path:"/updateProductDetails/:id",
+      element: <PrivateRoute><UpdateDetails></UpdateDetails></PrivateRoute>
     },
    ]
   },

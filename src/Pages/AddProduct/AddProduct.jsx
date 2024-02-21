@@ -36,6 +36,7 @@ const AddProduct = () => {
         productDetails: data?.details,
       
         productBrand: data.category,
+        productRating: parseFloat(data.rating),
         productType: data.type,
         email: user?.email,
         createdAt: new Date(),
@@ -137,8 +138,8 @@ const AddProduct = () => {
                     <option disabled value="default">
                       Select a Product Type
                     </option>
-                    <option value="full">Full Sleeve</option>
-                    <option value="half">Half Sleeve</option>
+                    <option value="full sleeve">Full Sleeve</option>
+                    <option value="half sleeve">Half Sleeve</option>
                     <option value="jacket">Jacket</option>
                     
                    
@@ -161,7 +162,7 @@ const AddProduct = () => {
                   <option value="nike">Nike</option>
                   <option value="kappa">Kappa</option>
                   <option value="puma">puma</option>
-                  <option value="balance">New Balance</option>
+                  <option value="new balance">New Balance</option>
                  
                 </select>
               </div>
