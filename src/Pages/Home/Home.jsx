@@ -1,7 +1,7 @@
-import Collection from "../../components/Collection/Collection";
 import Hero from "../../components/Hero/Hero";
 import Navbar from "../../components/Navbar/Navbar";
 import Policy from "../../components/Policy/Policy";
+import Slider from "../../components/AllCategorySlider/Slider";
 
 
 const Home = () => {
@@ -16,9 +16,9 @@ const Home = () => {
 
   
 </div>
-   <div>
+   <div className="container mx-auto">
     <Policy></Policy>
-    <Collection></Collection>
+    <Slider></Slider>
    </div>
 
     </div>
