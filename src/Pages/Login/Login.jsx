@@ -1,10 +1,17 @@
 import Typewriter from 'typewriter-effect';
 
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
+import useAuth from '../../hooks/useAuth';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
+  const {signIn}= useAuth()
+  const navigate=useNavigate()
+  const location =useLocation()
+  let from = location.state?.from?.pathname || "/"
+
   const {
     register,
     handleSubmit,
@@ -13,9 +20,19 @@ const Login = () => {
   } = useForm();
 
   const onSubmit =async (data)=>{
-    const { email, password, image, accountType } = data;
+    const { email, password} = data;
   
-      console.log( email, password, image, accountType);
+      console.log( email, password);
+      signIn(email,password)
+      .then(res=>{
+        console.log(res.user)
+        navigate(from,{replace:true})
+      })
+      .catch(error=>{
+        console.log(error)
+        toast.error(error.message)
+       reset()
+       })
   }
 
 
@@ -71,13 +88,16 @@ const Login = () => {
         </div>
 
         <div className="form-control">
-    
-    
-    <input type="password"
-     name="password" placeholder="Password" 
-     className="p-4 text-black text-xl mt-4 " required />
-   
-  </div>
+          
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            {...register("password", { required: true })}
+            className="p-4 text-black text-xl mt-4 "
+          />
+          
+        </div>
 
       
 
@@ -118,7 +138,7 @@ const Login = () => {
 
       
         </div>
-
+        <ToastContainer></ToastContainer>
   
       </div>
 
@@ -126,7 +146,7 @@ const Login = () => {
 
 
      
-
+      
 
 
        
