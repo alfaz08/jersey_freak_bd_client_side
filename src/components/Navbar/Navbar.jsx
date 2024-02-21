@@ -3,14 +3,17 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import {  toast } from "react-toastify";
+import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../../hooks/useCart";
 
 
 
 const Navbar = () => {
   const {user,logOut} = useAuth()
+  
   const location = useLocation()
   console.log(location);
-  
+  const [cart] =useCart()
   const isAdmin= false
   const isVendor = false
 
@@ -46,14 +49,14 @@ const handleLogOut =()=>{
 
   const navLinks = (
     <>
-      
+    
       {
         location.pathname ==="/"?
 <li className="text-xl bg-amber-400 rounded-lg text-black font-bold">
         <Link to="/" ClassName="" >Home</Link>
       </li> :
       <li className="text-xl font-bold">
-      <NavLink to="/" ClassName="" >Home</NavLink>
+      <Link to="/" ClassName="" >Home</Link>
     </li>
       }
      {
@@ -67,14 +70,14 @@ const handleLogOut =()=>{
   </li>
      }
       <li className="text-xl font-bold">
-        <NavLink to="/about">About</NavLink>
+        <Link to="/about">About</Link>
       </li>
       
       {
         user ?
         null:
         <li className="text-xl font-bold">
-        <NavLink to="/signUp">Sign Up</NavLink>
+        <Link to="/signUp">Sign Up</Link>
       </li>
       }
       
@@ -88,6 +91,36 @@ const handleLogOut =()=>{
     <Link to="/addProduct">Add Product</Link>
   </li>
      }
+
+{
+  location.pathname ==='/cart' ?
+  <li className="text-xl bg-amber-300 rounded-lg text-black">
+        <Link to="/cart">
+          
+        <div>
+    <div className="">
+      <FaShoppingCart className=" text-3xl w-16" />
+      <h2 className="rounded-full  bg-purple-300 text-black border-black absolute  top-[-8px]  left-6 mt-[-28] w-[30px] h-[30px] badge">+{cart.length}</h2>
+    </div>
+  </div>
+          
+        </Link>
+      </li>
+
+      :
+      <li className="text-xl">
+        <Link to="/cart">
+          
+        <div>
+    <div className="">
+      <FaShoppingCart className=" text-3xl w-16" />
+      <h2 className="rounded-full bg-purple-300 text-black border-black absolute  top-[-8px]  left-6 mt-[-28] w-[30px] h-[30px] badge">+{cart.length}</h2>
+    </div>
+  </div>
+          
+        </Link>
+      </li>
+}
 
 </>
       )

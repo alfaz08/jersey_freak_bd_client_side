@@ -27,7 +27,7 @@ const AddProduct = () => {
       const productInfo = {
         productName: data?.name,
         productImage: res.data.data.display_url,
-        productionPrice: data?.price,
+        
    
       
         productPrice:
