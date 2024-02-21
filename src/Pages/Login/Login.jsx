@@ -1,7 +1,5 @@
 import Typewriter from 'typewriter-effect';
-import { FaFacebook } from "react-icons/fa";
-import { AiFillInstagram, AiFillTwitterCircle } from "react-icons/ai";
-import { IoLogoYoutube } from "react-icons/io5";
+
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
@@ -38,7 +36,19 @@ const Login = () => {
 <div className="hero ">
   <div className="hero-content flex-col ">
     <div className=" lg:text-left">
-      <h1 className="text-5xl font-bold text-center">Jersey Freak BD</h1>
+    <h2 className="text-4xl mt-2 md:text-4xl  font-bold">
+          <span style={{ }}>
+            <Typewriter
+              options={{
+                strings: ["WELCOME TO JERSEY FREAK BD" ],
+                autoStart: true,
+                loop: true,
+                
+              }}
+            />
+              </span>
+          </h2>
+      
       <h1 className="text-4xl font-bold text-center mt-4">Login into your account</h1>
       
     </div>
@@ -86,8 +96,8 @@ const Login = () => {
         </div>
       </form>
       <p className="text-center mt-4 mb-4 ">
-  <span className="text-xl font-semibold ">Already have an account.Please </span>
-  <Link to="/signUp"  className=" font-bold text-blue-600 text-xl hover:text-red-600">Login</Link>
+  <span className="text-xl font-semibold ">Don't have an account? .Please </span>
+  <Link to="/signUp"  className=" font-bold btn  text-blue-600 text-xl hover:text-red-600">Register</Link>
 </p>
       <div>
      
