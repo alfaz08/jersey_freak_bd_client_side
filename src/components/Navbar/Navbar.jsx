@@ -1,14 +1,16 @@
 
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import {  toast } from "react-toastify";
 
 
 
 const Navbar = () => {
-
+  const {user,logOut} = useAuth()
   const location = useLocation()
   console.log(location);
-  const user = true
+  
   const isAdmin= false
   const isVendor = false
 
@@ -29,6 +31,18 @@ const handleToggle =(e)=>{
     setTheme("light")
   }
 }
+
+
+const handleLogOut =()=>{
+  logOut()
+  .then(()=>
+  {
+   console.log('user logged out successfully')
+  })
+  .catch(error=>toast(error))
+
+}
+
 
   const navLinks = (
     <>
@@ -144,12 +158,6 @@ const handleToggle =(e)=>{
                       <a className="hover:bg-green-200">Dashboard</a>
                     </li>
                   </Link>
-                ) : isVendor ? (
-                  <Link to="/dashboard/vendorHome">
-                    <li>
-                      <a className="hover:bg-green-200">Dashboard</a>
-                    </li>
-                  </Link>
                 ) : (
                   <Link to="/dashboard/userHome">
                     <li>
@@ -158,7 +166,7 @@ const handleToggle =(e)=>{
                   </Link>
                 )}
 
-                <li >
+                <li onClick={handleLogOut}>
                   <a className="hover:bg-green-200">Logout</a>
                 </li>
               </ul>
@@ -171,7 +179,7 @@ const handleToggle =(e)=>{
             </div>
           )}
 
-<label className="swap swap-rotate">
+<label className="swap swap-rotate ml-4">
   
   {/* this hidden checkbox controls the state */}
   <input
