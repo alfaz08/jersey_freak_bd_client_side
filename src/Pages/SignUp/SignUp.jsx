@@ -5,8 +5,20 @@ import { IoLogoYoutube } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
+import { ToastContainer, toast } from 'react-toastify';
+import useAuth from '../../hooks/useAuth';
+import { useState } from 'react';
+import Swal from 'sweetalert2';
+
 
 const SignUp = () => {
+   const {createUser,updateUserProfile}= useAuth()
+   const [loggedIn,setLoggedIn]=useState(false)
+  const axiosPublic =useAxiosPublic()
   const {
     register,
     handleSubmit,
@@ -15,12 +27,45 @@ const SignUp = () => {
   } = useForm();
 
   const onSubmit =async (data)=>{
-    const { name, email, password, image, accountType } = data;
+    const { name, email, password, image } = data;
   
-      console.log(name, email, password, image, accountType);
+      console.log(name, email, password, image);
+      const imageFile ={image: data.image[0]}
+      const res =await axiosPublic.post(image_hosting_api,imageFile,{
+        headers:{
+          "content-type": "multipart/form-data"
+        }
+      })
+      if(res.data.success){
+        try{
+        await createUser(data.email,data.password)
+    
+      await updateUserProfile(data.name,res.data.data.display_url)
+      const userInfo ={
+        email: data.email,
+        name:data.name,
+        role:'customer',
+        membership:'normal'
+        }
+      const userRes = await axiosPublic.post('/users',userInfo)
+      if(userRes.data.insertedId){
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Sign up has been successful',
+          showConfirmButton: false,
+          timer: 500,
+        });
+        setLoggedIn(true)
+      }
+      }catch(error){
+        toast.error(error.message)
+        reset()
+      }
+
   }
 
-
+  }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2  ">
@@ -188,7 +233,7 @@ const SignUp = () => {
 
 
        
-
+  <ToastContainer></ToastContainer>
 
 
     </div>
