@@ -69,12 +69,25 @@ const handleLogOut =()=>{
       <li className="text-xl font-bold">
         <NavLink to="/about">About</NavLink>
       </li>
-      <li className="text-xl font-bold">
-        <NavLink to="/login">Login</NavLink>
-      </li>
-      <li className="text-xl font-bold">
+      
+      {
+        user ?
+        null:
+        <li className="text-xl font-bold">
         <NavLink to="/signUp">Sign Up</NavLink>
       </li>
+      }
+      
+      {
+      location.pathname ==='/addProduct' ?
+      <li className="text-xl bg-amber-400 rounded-lg text-black font-bold">
+      <Link to="/addProduct">Add Product</Link>
+    </li>
+    :
+    <li className="text-xl font-bold">
+    <Link to="/addProduct">Add Product</Link>
+  </li>
+     }
 
 </>
       )
@@ -109,11 +122,13 @@ const handleLogOut =()=>{
           </div>
 
           <div>
+            <Link to="/">
             <img
               className=" w-20 h-20 rounded-xl"
               src="https://i.ibb.co/FY2Cn2y/277734165-2107078592792816-7369997220394083458-n.jpg"
               alt=""
             />
+            </Link>
           </div>
          
         </div>

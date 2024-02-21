@@ -5,6 +5,8 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import About from "../Pages/About/About";
+import AddProduct from "../Pages/AddProduct/AddProduct";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
     {
       path:"/signUp",
       element: <SignUp></SignUp>
+    },
+    {
+      path:"/addProduct",
+      element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
     },
    ]
   },
