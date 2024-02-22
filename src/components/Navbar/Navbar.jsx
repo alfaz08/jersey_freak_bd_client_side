@@ -14,8 +14,7 @@ const Navbar = () => {
   const location = useLocation()
   console.log(location);
   const [cart] =useCart()
-  const isAdmin= false
-  const isVendor = false
+  
 
    const [theme,setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme"):"light")
 
@@ -200,22 +199,10 @@ const handleLogOut =()=>{
                   {user.displayName ? user.displayName : <div>Account</div>}
                 </li>
 
-                {isAdmin ? (
-                  <Link to="/dashboard/adminHome">
-                    <li>
-                      <a className="hover:bg-green-200">Dashboard</a>
-                    </li>
-                  </Link>
-                ) : (
-                  <Link to="/dashboard/userHome">
-                    <li>
-                      <a className="hover:bg-green-200">Dashboard</a>
-                    </li>
-                  </Link>
-                )}
+               
 
                 <li onClick={handleLogOut}>
-                  <a className="hover:bg-green-200">Logout</a>
+                  <a className="hover:bg-amber-300">Logout</a>
                 </li>
               </ul>
             </div>

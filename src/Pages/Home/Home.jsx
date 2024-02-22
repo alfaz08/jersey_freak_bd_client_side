@@ -2,6 +2,8 @@ import Hero from "../../components/Hero/Hero";
 import Navbar from "../../components/Navbar/Navbar";
 import Policy from "../../components/Policy/Policy";
 import Slider from "../../components/AllCategorySlider/Slider";
+import Footer from "../../components/Footer/Footer";
+import NewArrival from "../../components/NewArrival/NewArrival";
 
 
 const Home = () => {
@@ -19,8 +21,10 @@ const Home = () => {
    <div className="container mx-auto">
     <Policy></Policy>
     <Slider></Slider>
+    <NewArrival></NewArrival>
    </div>
 
+<Footer></Footer>
     </div>
 
   );
