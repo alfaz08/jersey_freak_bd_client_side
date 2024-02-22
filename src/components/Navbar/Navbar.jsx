@@ -65,12 +65,10 @@ const handleLogOut =()=>{
     </li>
     :
     <li className="text-xl font-bold">
-    <NavLink to="/contact">Contact</NavLink>
+    <Link to="/contact">Contact</Link>
   </li>
      }
-      <li className="text-xl font-bold">
-        <Link to="/about">About</Link>
-      </li>
+    
       
       {
         user ?

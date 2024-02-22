@@ -49,7 +49,7 @@ const Slider = () => {
      <div className="flex justify-between ">
      <div>
      <h2 className="text-center mt-8 font-semibold text-4xl mb-4 text-green-00">
-        Browse All Category
+        Different brand
       </h2>
      </div>
 

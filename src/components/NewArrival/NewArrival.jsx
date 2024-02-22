@@ -6,7 +6,7 @@ const NewArrival = () => {
   const [allProducts]=useProduct()
   console.log('all',allProducts);
 
-  const filterProducts = allProducts?.slice(0,3)
+  const filterProducts = allProducts?.slice(0,4)
 
 
   return (
@@ -20,7 +20,7 @@ const NewArrival = () => {
      </div>
      </div>
 
-     <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+     <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
       {
         filterProducts?.map(product=>(
           <div key={product._id}>
@@ -29,7 +29,7 @@ const NewArrival = () => {
       <figure><img className="h-80 w-full" src={product.productImage} alt="Shoes" /></figure>
       <div className="card-body">
         <h2 className="card-title font-semibold">
-          Product Name: {product.productName}
+          {product.productName}
           <div className="badge h-12 bg-purple-400 ">
             <span className='text-center font-bold'>{product.productType}</span>
              </div>

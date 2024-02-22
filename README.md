@@ -1,8 +1,19 @@
-# React + Vite
+# Project Title: Jersey Freak Web With MERN Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
+#### Jersey Freak BD is a unique and visually appealing e-commerce platform dedicated to jersey enthusiasts. The website offers a seamless user experience with a variety of features catering to both casual shoppers and passionate collectors.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Show all the data from fetch MongoBD API.
+- Sign Up in website using Name,Photo URL,Email and Password with firsbase.
+- Login website using Email and Password.
+- User can added brand data item.
+- User can update brand data item.
+- User can added brand data item into cart.
+- user can deleted brand data item form cart.
+- cart is specificed based on logged user email means every user has its own cart.
+- Responsive for all device
+
+
+## Live Link: https://jersey-freak-bd.web.app/

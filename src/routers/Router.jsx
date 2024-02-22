@@ -11,6 +11,7 @@ import CategoryDetails from "../Pages/CategoryDetails/CategoryDetails";
 import ProductDetails from "../Pages/CategoryDetails/ProductDetails";
 import UpdateDetails from "../Pages/CategoryDetails/UpdateDetails";
 import Cart from "../Pages/Cart/Cart";
+import Contact from "../Pages/Contact/Contact";
 
 
 const router = createBrowserRouter([
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
     },
     {
       path:"/contact",
-      element: <Home></Home>
+      element: <Contact></Contact>
     },
     {
       path:"/about",
